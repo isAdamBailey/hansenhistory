@@ -1,0 +1,312 @@
+/*
+/ hansennorthforkranch.ajamesb.com
+/ Adam Bailey 01-2016
+*/
+
+/*
+ * Globals
+ */
+
+body {
+  font-family: 'Droid Serif', serif;
+  color: #555;
+  margin-top:40px;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: 0;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: normal;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,{
+  color: #333;
+}
+
+
+/*
+/ Navbar
+*/
+.navbar-nav > li {
+
+}
+
+/* Active state gets a caret at the bottom */
+.nav .active {
+  color: #fff;
+}
+
+.nav .active:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -10px;
+  vertical-align: middle;
+  content: " ";
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid;
+  border-left: 10px solid transparent;
+}
+
+.nav-item{
+  font-size:1.5em;
+}
+
+ .nav-item:hover{
+  background:#c4c4c4;
+ }
+
+/* page loader gif */
+ .loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url('../images/page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
+}
+
+/*
+ * Header and description
+ */
+
+.header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.title {
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-size: 60px;
+  font-weight: normal;
+}
+.description {
+  font-size: 20px;
+  color: #999;
+}
+
+/*
+ * Home page
+ */
+.index-background {
+  background: url(../images/cloud-background.jpg)top center;
+  background-color: #333;
+  width: 100%;
+}
+.intro {
+  padding-top: 40px;
+}
+
+.intro h1,.intro h2 {
+  font-size: 5em;
+  color: #fff;
+  text-shadow: 2px 2px #696969;
+}
+
+.intro h2 {
+  font-size: 3em;
+}
+
+.intro h4 {
+  font-size: 1.5em;
+  color: #fff;
+}
+
+/* parallax sections */
+.one {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  z-index: 999;
+}
+
+.two {
+  background: url(../images/field.png)no-repeat top center; 
+  width: 100%;
+  height: 528px;
+  box-shadow: 0 5px 3px -3px gray;
+}
+
+.three {
+  background: url(../images/farm.png)no-repeat top center;
+  position:relative;
+  width: 100%;
+  height: 800px;
+  box-shadow: 0 5px 3px -3px gray;
+}
+
+
+/*
+ * Main column and sidebar layout
+ */
+
+/* Sidebar modules for boxing content */
+.sidebar-module {
+  padding: 15px;
+  margin: 0 15px;
+}
+
+.sidebar-module a {
+  font-size: 1.2em;
+}
+
+.sidebar-module-inset {
+  border: 5px dashed #ccc;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+#search-form {
+  padding-top: 65px;
+}
+
+/*
+ * Stories
+ */
+
+ .stories {
+  margin-bottom: 60px;
+  border-top:2px dashed #ccc;
+  padding: 20px;
+}
+
+.story {
+  padding-top: 40px;
+  margin-bottom: 60px;
+}
+.story blockquote {
+  font-style: italic;
+  color:#a9a9a9;
+}
+
+.story-main {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.story-post-title {
+  margin-bottom: 5px;
+  font-size: 40px;
+}
+
+.story-post-author {
+  font-size: 25px;
+}
+
+.story-post-meta {
+  font-size: .7em;
+  margin-bottom: 20px;
+  color: #999;
+}
+
+.readmore {
+	display:block;
+  font-size: 1.1em;
+	text-align:center;
+	padding: 5px;
+	background:#f4f4f4;
+	margin-top:10px;
+	color:#333;
+}
+
+.readmore:hover {
+	background:#ccc;
+	color:#666;
+	text-decoration:none;
+}
+
+/*
+ * Picture gallery
+ */
+
+.pictures {
+  margin-bottom: 40px;
+}
+
+.grid-item {
+  width:200px;
+  padding:3px;
+}
+
+#year {
+  font-size: 1.2em;
+  color:#710071;
+}
+
+/*
+ * Obituaries
+ */
+
+ .obits {
+  width: 300px;
+  margin: 0 10px;
+ }
+
+ .obit {
+  max-width: 450px;
+ }
+
+/*
+ * Footer
+ */
+
+footer {
+  margin-top: 60px;
+  padding: 40px;
+  color: #999;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+}
+
+/*
+ * Admin page
+ */
+
+.table img { 
+  width: 70%; 
+  }
+
+/*
+/ Link States
+*/
+
+a {
+  text-decoration: none;
+  color:#710071;
+}
+
+a:hover {
+  text-decoration: none;
+  color:#666;
+  cursor: pointer;
+}
+
+/*
+/ Media Queries
+*/
+
+@media(max-width:770px) {
+
+  .grid-item { 
+    width: 165px;   /* this allows for 2 rows of pictures on a standard phone */
+  }
+
+  .table img { 
+    width: 100%; 
+  }
+
+  .obits {
+    margin: 0;
+  }
+}

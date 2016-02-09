@@ -1,4 +1,5 @@
-config/*
+/config
+.well-known
 
 # Packages #
 ############
@@ -21,6 +22,7 @@ config/*
 
 # Images #
 ##########
+/images
 *.jpg
 *.gif
 *.png

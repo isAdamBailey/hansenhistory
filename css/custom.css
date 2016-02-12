@@ -27,7 +27,7 @@ h6, .h6 {
 h1, .h1,
 h2, .h2,
 h3, .h3,{
-  color: #333;
+  color: #000;
 }
 
 
@@ -283,13 +283,17 @@ footer {
 
 a {
   text-decoration: none;
-  color:#710071;
+  color: #4949fc;
 }
 
 a:hover {
-  text-decoration: none;
   color:#666;
   cursor: pointer;
+}
+
+a:visited {
+  text-decoration: none;
+  color:#710071;
 }
 
 /*

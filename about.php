@@ -14,6 +14,10 @@
 
     <div class="row">
       <div class="col-md-12">
+        <figure class="center-block obit">
+        	<img class="img-rounded img-responsive" src="images/Walter Hansen-28 roadster.jpg" alt="Walter Hansen and his 1928 roadster">
+        	<figcaption class="text-center">Walter E Hansen and his 1928 roadster at the farm</figcaption>
+        </figure><br>
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">The Property</h3>

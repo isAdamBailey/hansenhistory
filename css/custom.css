@@ -254,7 +254,15 @@ h3, .h3,{
  }
 
  .obit {
-  max-width: 450px;
+  max-width: 700px;
+ }
+
+/*
+ * About
+ */
+
+ figcaption {
+ 	font-style: italic;
  }
 
 /*
@@ -294,6 +302,11 @@ a:hover {
 a:visited {
   text-decoration: none;
   color:#710071;
+}
+
+.btn:visited {
+  text-decoration: none;
+  color:#fff;
 }
 
 /*

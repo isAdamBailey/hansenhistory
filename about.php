@@ -101,8 +101,8 @@
             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
                 <ul>
-                  <li>There would be nothing here without <strong>Walter Hansen Sr.</strong>, whose own love of history and historical conservation kept the farm and its artifacts, 
-                  including the pictures shown on this website intact.</li>
+                  <li>There would be nothing here without <strong>Walter E. Hansen Sr.</strong>, whose own love of history and historical conservation kept the farm and its artifacts, including the pictures shown on this website intact.
+                  <em>This website is dedicated to the memory of Grandpa Walt</em>.</li>
                   <li>The pictures showcased here were painstakingly and lovingly digitized by <strong>Martin Hansen.</strong></li>
                   <li>This website was written and is maintained by <strong>Adam Bailey</strong>. You may contact Adam for website questions at the contact form on this page.</li>
                 </ul>

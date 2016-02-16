@@ -261,9 +261,22 @@ h3, .h3,{
  * About
  */
 
- figcaption {
- 	font-style: italic;
+ .carousel {
+  min-height:600px;
+  margin-bottom: 2em;
  }
+
+.carousel .item{
+  height:600px;
+ }
+
+ .carousel-inner > .item > img{
+  position:absolute;
+  top:0;
+  left:0;
+  min-width:100%;
+  height:600px;
+}
 
 /*
  * Footer
@@ -325,5 +338,17 @@ a:visited {
 
   .obits {
     margin: 0;
+  }
+
+  .carousel {
+    min-height: 300px;
+  }
+
+  .carousel .item{
+    height:300px;
+  }
+
+  .carousel-inner > .item > img{
+    height:300px;
   }
 }

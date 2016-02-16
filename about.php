@@ -16,7 +16,7 @@
       <div class="col-md-12">
         <figure class="center-block obit">
         	<img class="img-rounded img-responsive" src="images/Walter Hansen-28 roadster.jpg" alt="Walter Hansen and his 1928 roadster">
-        	<figcaption class="text-center">Walter E Hansen and his 1928 roadster at the farm</figcaption>
+        	<figcaption class="text-center">Walter E Hansen and his 1928 roadster</figcaption>
         </figure><br>
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -69,8 +69,8 @@
           </div>
           <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
-              <input id="submit" name="submit" type="submit" value="Send" class="btn btn-default btn-lg">
-              <a class="btn btn-default btn-lg" href="about.php">Cancel</a>
+              <input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary btn-lg">
+              <a class="btn btn-danger btn-lg" href="about.php">Cancel</a>
             </div>
           </div>
           <div class="form-group">

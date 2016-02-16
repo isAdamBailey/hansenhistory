@@ -88,7 +88,7 @@
       <div class="sidebar-module sidebar-module-inset">
         <h4>About</h4>
         <p><?php echo $about_images; ?></p>
-        <a class="btn btn-default text-center" href="pictures.php" role="button">All Pictures</a>
+        <a class="btn btn-primary text-center" href="pictures.php" role="button">All Pictures</a>
       </div>
       <div class="sidebar-module">
         <h4>Categories</h4>

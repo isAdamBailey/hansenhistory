@@ -54,7 +54,7 @@ $id = $_GET['id'];
       <div class="sidebar-module sidebar-module-inset">
         <h4>About</h4>
         <p><?php echo $about_stories; ?></p>
-        <a class="btn btn-default text-center" href="stories.php" role="button">Return To All Stories</a>
+        <a class="btn btn-primary text-center" href="stories.php" role="button">Return To All Stories</a>
       </div>
       <div class="sidebar-module">
         <h4>Categories</h4>

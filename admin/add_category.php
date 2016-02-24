@@ -29,7 +29,7 @@
     </div>
     <div>
       <input name="submit" type="submit" class="btn btn-default" value="Submit" />
-      <a href="index.php" class="btn btn-default">Cancel</a>
+      <a href="index.php" class="btn btn-primary">Cancel</a>
     </div>
   </form>
 </div>

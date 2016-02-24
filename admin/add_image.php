@@ -105,7 +105,7 @@
       </div>
       <div class="col-md-10 form-group">
         <input name="submit" type="submit" class="btn btn-default" value="Submit" />
-        <a href="index.php" class="btn btn-default">Cancel</a>
+        <a href="index.php" class="btn btn-primary">Cancel</a>
       </div>  
       <br>
     </form>

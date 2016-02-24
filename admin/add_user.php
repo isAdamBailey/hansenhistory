@@ -92,7 +92,7 @@
         </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-6">
-            <button type="submit" name="submit"class="btn btn-default btn-lg">Submit</button>
+            <button type="submit" name="submit"class="btn btn-primary btn-lg">Submit</button>
           </div>
         </div>
       </form>

@@ -138,7 +138,7 @@ $images = $db->select($query);
           $cat = $db->select($query)->fetch_assoc();
         ?>
         <td><?php echo $cat['Name']; ?></td>
-        <td><a class="btn btn-default" href="edit_image.php?id=<?php echo $row['id']; ?>" role="button"><span class="glyphicon glyphicon-pencil"></span> Edit</a><br><br></td>
+        <td><a class="btn btn-primary" href="edit_image.php?id=<?php echo $row['id']; ?>" role="button"><span class="glyphicon glyphicon-pencil"></span> Edit</a><br><br></td>
       </tr>
     <?php endwhile; ?>
     </table>

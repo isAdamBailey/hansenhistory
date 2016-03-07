@@ -1,21 +1,15 @@
-<?php include 'includes/header.php'; ?>
-<?php
+<?php 
+  include 'includes/header.php';
 
-$id = $_GET['id'];
+  $id = $_GET['id'];
 
-  // create DB object
   $db = new Database();
+  $st = new Story();
+  $ca = new Category();
 
-  // create storys query
-  $query = "SELECT * FROM tblStories WHERE id = ".$id;
-  //run query
-  $story = $db->select($query)->fetch_assoc();
+  $story = $db->select($st->getStoryById($id))->fetch_assoc();
 
-  // create categories query
-  $query = "SELECT * FROM tblCategories
-            ORDER BY  Name";
-  //run query
-  $categories = $db->select($query);
+  $categories = $db->select($ca->getAllCategories());
 ?>
 
 <?php

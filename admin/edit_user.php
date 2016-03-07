@@ -9,11 +9,10 @@
   }
 
   // get database object
-  $db = new Database;
+  $db = new Database();
+  $us = new User();
 
-  // get user
-  $query = "SELECT * FROM tblUsers WHERE id = ".$id;
-  $user = $db->select($query)->fetch_assoc();
+  $user = $db->select($us->getUserById($id))->fetch_assoc();
 
   // if submit button is pressed
   if(isset($_POST['submit'])){

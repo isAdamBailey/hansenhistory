@@ -1,18 +1,12 @@
 <?php include 'includes/header.php'; ?>
 <?php
-  $id = $_GET['id'];
 
-  // create DB object
   $db = new Database();
+  $ob = new Obituary();
 
-  // create obituaries query
-  $query = "SELECT * FROM tblObits WHERE id = ".$id;
-  //run query
-  $obit = $db->select($query)->fetch_assoc();
+  $obit = $db->select($ob->getSingleObituary())->fetch_assoc();
 
-?>
-
-<?php
+  $id = $_GET['id'];
   // if submit button is pressed
   if(isset($_POST['submit'])){
     //assign variables

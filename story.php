@@ -1,32 +1,16 @@
-<?php include 'includes/header.php'; ?>
+<?php 
+  include 'includes/header.php';
 
-<?php
+  $id = $_GET['id'];
 
-$id = $_GET['id'];
-
-  // create DB object
   $db = new Database();
+  $st = new Story();
 
-  // create stories query
-  $query = "SELECT * FROM tblStories WHERE id = ".$id;
-  //run query
-  $story = $db->select($query)->fetch_assoc();
+  $story = $db->select($st->getStoryById($id))->fetch_assoc();
 
-  // create categories query
-  $query = "SELECT tc.id, Name FROM (SELECT DISTINCT * FROM tblCategories) as tc
-            INNER JOIN tblStories
-            ON tc.id = tblStories.CategoryId
-            GROUP BY Name";
-  //run query
-  $categories = $db->select($query);
+  $categories = $db->select($st->getStoryCategories());
 
-  // submitter for each story
-  $query = "SELECT Name FROM tblUsers
-            INNER JOIN tblStories
-            WHERE tblUsers.id = ".$story['UserId'];
-  // run query
-  $sub = $db->select($query);
-  $submitter = $sub->fetch_assoc();
+  $submitter = $db->select($st->getStorySubmitter($story))->fetch_assoc();
 ?>
 
 <div class="container">

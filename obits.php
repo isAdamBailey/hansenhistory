@@ -1,15 +1,10 @@
-<?php include 'includes/header.php'; ?>
-<?php
+<?php 
+  include 'includes/header.php'; 
 
-  // create DB object
   $db = new Database();
+  $obit = new Obituary();
 
-  //  obituaries query
-  $query = "SELECT * FROM tblObits
-            ORDER BY DeathDate DESC";
-  //run query
-  $obits = $db->select($query);
-
+  $obits = $db->select($obit->getAllObituaries());
 ?>
 
 <div class="container">

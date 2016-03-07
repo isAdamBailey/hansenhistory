@@ -1,16 +1,14 @@
-<?php include 'includes/header.php'; ?>
-<?php
+<?php 
+
+  include 'includes/header.php';
+
   $id = $_GET['id'];
 
-// create DB object
   $db = new Database();
+  $ca = new Category();
 
-  // create posts query
-  $query = "SELECT * FROM tblCategories WHERE id = ".$id;
-  //run query
-  $category = $db->select($query)->fetch_assoc();
-?>
-<?php
+  $category = $db->select($ca->getCategoryById($id))->fetch_assoc();
+
 
   if(isset($_POST['submit'])){
     //assign post variables

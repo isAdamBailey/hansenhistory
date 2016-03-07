@@ -1,6 +1,12 @@
 <?php ob_start(); ?>
 <?php include 'config/config.php'; ?>
+
 <?php include 'libraries/Database.php'; ?>
+<?php include 'libraries/Obituary.php'; ?>
+<?php include 'libraries/Picture.php'; ?>
+<?php include 'libraries/Category.php'; ?>
+<?php include 'libraries/Story.php'; ?>
+
 <?php include 'helpers/format_helper.php'; ?>
 <?php include 'helpers/search_helper.php'; ?>
 <?php include 'helpers/email_helper.php'; ?>

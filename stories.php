@@ -3,33 +3,20 @@
 
   // create DB object
   $db = new Database();
+  $st = new Story();
+  $ca = new Category();
 
    // check url for category
   if(isset($_GET['category'])){
     $category = $_GET['category'];
-    // create stories by category
-    $query = "SELECT * FROM tblStories WHERE CategoryId = ".$category;
-    //run query
-    $stories = $db->select($query);
-    // get category name
-    $query = "SELECT Name FROM tblCategories WHERE id = ".$category;
-    $cat = $db->select($query)->fetch_assoc();
+    $stories = $db->select($st->getStoryByCategory($category));
+    $cat = $db->select($ca->getCategoryById($category))->fetch_assoc();
+
   } else {
-    //  if no category then create all stories query
-    $query = "SELECT * FROM tblStories
-              ORDER BY id DESC";
-    //run query
-    $stories = $db->select($query);
+    $stories = $db->select($st->getAllStories());
   }
 
-  // create categories query
-  $query = "SELECT tc.id, Name FROM (SELECT DISTINCT * FROM tblCategories) as tc
-            INNER JOIN tblStories
-            ON tc.id = tblStories.CategoryId
-            GROUP BY Name";
-
-  //run query
-  $categories = $db->select($query);
+  $categories = $db->select($st->getStoryCategories());
 ?>
 
 <div class="container">

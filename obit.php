@@ -1,21 +1,10 @@
-<?php include 'includes/header.php'; ?>
+<?php 
+  include 'includes/header.php'; 
 
-<?php
-  if (isset($_GET['id'])){
-   $id = $_GET['id'];
-  } else {
-    header("Location: obits.php");
-    exit();
-  }
-
-  // create DB object
   $db = new Database();
+  $ob = new Obituary();
 
-  // obituaries
-  $query = "SELECT * FROM tblObits WHERE id = ".$id;
-  //run query
-  $obit = $db->select($query)->fetch_assoc();
-
+  $obit = $db->select($ob->getObituaryById())->fetch_assoc();
 ?>
 
 <div class="container">

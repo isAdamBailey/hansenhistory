@@ -312,10 +312,10 @@ a:hover {
   cursor: pointer;
 }
 
-a:visited {
+/*a:visited {
   text-decoration: none;
   color:#710071;
-}
+}*/
 
 .btn:visited {
   text-decoration: none;

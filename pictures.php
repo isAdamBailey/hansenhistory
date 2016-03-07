@@ -3,47 +3,28 @@
 
   // create DB object
   $db = new Database();
+  $pi = new Picture();
+  $ca = new Category();
 
   // check url for _GET values
   if(isset($_GET['category'])){
     $category = $_GET['category'];
-    // create images by category
-    $query = "SELECT * FROM tblImages WHERE CategoryId = ".$category;
-    $images = $db->select($query);
-    // get category name
-    $query = "SELECT Name FROM tblCategories WHERE id = ".$category;
-    $cat = $db->select($query)->fetch_assoc();
+    $images = $db->select($pi->getPictureByCategory($category));
+    $cat = $db->select($ca->getCategoryById($category))->fetch_assoc();
+
   } else {
-    // check url for year
     if(isset($_GET['year'])){
       $year = $_GET['year'];
-      // create images by category
-      $query = "SELECT * FROM tblImages WHERE Year = ".$year;
-      //run query
-      $images = $db->select($query);
+      $images = $db->select($pi->getPictureByYear($year));
+      
     } else {
-      //  if no category then create all images query
-      $query = "SELECT * FROM tblImages
-                ORDER BY Year ASC";
-      //run query
-      $images = $db->select($query);
+      $images = $db->select($pi->getAllPictures());
     }
   }
 
-  // get years
-  $query = "SELECT DISTINCT Year FROM tblImages
-            ORDER BY Year ASC";
-  $years = $db->select($query);
+  $years = $db->select($pi->getPictureYears());
 
-  // get all categories
-
-  // get only categories related to a story
-  $query = "SELECT tc.id, Name FROM (SELECT DISTINCT * FROM tblCategories) as tc
-            INNER JOIN tblImages
-            ON tc.id = tblImages.CategoryId
-            GROUP BY Name";
-  //run query
-  $story_categories = $db->select($query);
+  $picture_categories = $db->select($pi->getPictureCategories());
 ?>
 
 <div class="container">
@@ -92,9 +73,9 @@
       </div>
       <div class="sidebar-module">
         <h4>Categories</h4>
-        <?php if($story_categories) : ?>
+        <?php if($picture_categories) : ?>
           <ol class="list-unstyled">
-          <?php while($row = $story_categories->fetch_assoc()) : ?>
+          <?php while($row = $picture_categories->fetch_assoc()) : ?>
             <li><a href="pictures.php?category=<?php echo $row['id']; ?>" data-html="true" data-toggle="tooltip" data-placement="right" title="<h4><?php echo $row['Name']; ?> Category</h4>">
               <?php echo $row['Name']; ?></a>
             </li>

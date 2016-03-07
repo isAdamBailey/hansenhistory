@@ -3,8 +3,15 @@
   session_start(); 
 ?>
 <?php 
-  include '../config/config.php'; 
+  include '../config/config.php';
+
   include '../libraries/Database.php';
+  include '../libraries/Obituary.php';
+  include '../libraries/Category.php';
+  include '../libraries/Picture.php';
+  include '../libraries/User.php';
+  include '../libraries/Story.php';
+  
   include '../helpers/format_helper.php';
 ?>
 <?php require 'auth.php'; ?>

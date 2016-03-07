@@ -1,23 +1,16 @@
-<?php include 'includes/header.php'; ?>
-<?php
+<?php 
+
+	include 'includes/header.php';
 	$id = $_GET['id'];
 
-	// create DB object
 	$db = new Database();
+	$pi = new Picture();
+	$ca = new Category();
 
-	// create images query
-	$query = "SELECT * FROM tblImages WHERE id = ".$id;
-	//run query
-	$image = $db->select($query)->fetch_assoc();
+	$image = $db->select($pi->getPictureById($id))->fetch_assoc();
 
-	// create categories query
-  	$query = "SELECT * FROM tblCategories
-  				ORDER BY Name";
- 	//run query
-  	$categories = $db->select($query);
-?>
+  	$categories = $db->select($ca->getAllCategories());
 
-<?php
   // if submit button is pressed
   if(isset($_POST['submit'])){
     //assign story variables

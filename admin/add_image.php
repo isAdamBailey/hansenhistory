@@ -1,38 +1,30 @@
-<?php include 'includes/header.php'; ?>
-<?php
+<?php 
+  include 'includes/header.php';
     
   // create DB object
   $db = new Database();
+  $ca = new Category();
+  $pi = new Picture();
 
-  // create categories query
-  $query = "SELECT * FROM tblCategories
-            ORDER BY Name";
-  //run query
-  $categories = $db->select($query);
-?>
-<?php
-  // if submit button is pressed
+  $categories = $db->select($ca->getAllCategories());
+
   if(isset($_POST['submit'])){
-
     // image variables 
     $target_dir = '../images/gallery/';
     $target_file = $target_dir . basename($_FILES['image']['name']);
     $uploadOk = 1;
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     $imagepath = basename($_FILES['image']['name']);
-
     // db variables
     $category = mysqli_real_escape_string($db->link, $_POST['category']);
     $title = mysqli_real_escape_string($db->link, $_POST['title']);
     $description = mysqli_real_escape_string($db->link, $_POST['description']);
     $year = mysqli_real_escape_string($db->link, $_POST['year']);
-
     // simple validation
     if($title == ''|| $description == ''|| $category ==''|| $year == ''){
       // set error
       $error = 'Please fill out all required fields.';
     }
-
     // image upload validation
     $check = getimagesize($_FILES["image"]["tmp_name"]);
     if($check !== false) {
@@ -57,20 +49,11 @@
      if ($uploadOk == 0) {
          $error = 'Sorry, your file was not uploaded.';
     } else {
-     
-      // upload the file
       move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-
-      // update the db values
-      $query = "INSERT INTO tblImages
-                (CategoryId, ImagePath, Year, Title, Description)                
-                VALUES
-                ('$category', '$imagepath', '$year', '$title', '$description')";
-
-      $insert_row = $db->insert($query);
+      
+      $insert_row = $db->insert($pi->setPicture($category, $imagepath, $year, $title, $description));
     }
   }
-
 ?>
 
 <h2 class="page-header">Add Image</h2>

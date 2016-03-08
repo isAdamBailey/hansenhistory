@@ -1,9 +1,8 @@
-<?php include 'includes/header.php'; ?>
+<?php 
+  include 'includes/header.php'; 
 
-<?php
-    
-  // create DB object
   $db = new Database();
+  $us = new User();
 
   if(isset($_POST['submit'])){
     //assign post variables
@@ -16,9 +15,8 @@
       // set error
       $error = 'Please fill out all required fields.';
     } else {
-      // make sure name does not already exist
-      $query = 'SELECT Name FROM tblUsers WHERE Name = "'.$name.'"';
-      $checkUsername = $db->select($query);
+      // make sure name does not already exist 
+      $checkUsername = $db->select($us->getUserByName($name));
       if (mysqli_num_rows($checkUsername) > 0) {
          $error = 'User name already exists.';
       } else { 
@@ -28,11 +26,8 @@
           $error = 'Passwords must match!';
         } else {
           $hash = password_hash($password, PASSWORD_DEFAULT);
-      $query = "INSERT INTO tblUsers
-                (Name, Password, isAdmin)
-                  VALUES ('$name', '$hash', '$isadmin')";
-      $insert_row = $db->insert($query);
-      }
+          $insert_row = $db->insert($us->setUser($name, $hash, $isadmin));
+        }
     }
   }
 }

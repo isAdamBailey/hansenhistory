@@ -52,6 +52,16 @@ class Story {
 
         return $query;
 	}
+
+	public function setStory($submitter, $category, $title, $author, $body)
+	{
+		$query = "INSERT INTO tblStories
+            (UserId,  CategoryId, Title, Author, Body)
+            VALUES ('$submitter', '$category', '$title', '$author', '$body')";
+
+        return $query;
+	}
+	
 	
 	
 }

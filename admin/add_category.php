@@ -1,22 +1,17 @@
-<?php include 'includes/header.php'; ?>
-<?php
+<?php 
+  include 'includes/header.php'; 
     
   // create DB object
   $db = new Database();
+  $ca = new Category();
 
   if(isset($_POST['submit'])){
-    //assign post variables
     $name = mysqli_real_escape_string($db->link, $_POST['name']);
 
-    // simple validation
     if($name == '') {
-      // set error
       $error = 'Please fill out all required fields.';
     } else {
-      $query = "INSERT INTO tblCategories
-                (Name)
-                  VALUES ('$name')";
-      $insert_row = $db->update($query);
+      $insert_row = $db->update($ca->setCategory($name));
     }
 }
 ?>

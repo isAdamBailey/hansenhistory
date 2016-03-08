@@ -1,8 +1,11 @@
-<?php include 'includes/header.php'; ?>
-<?php
+<?php 
+  include 'includes/header.php'; 
 
-  // create DB object
   $db = new Database();
+  $ca = new Category();
+  $st = new Story();
+
+  $categories = $db->select($ca->getAllCategories());
 
   if(isset($_POST['submit'])){
     //assign post variables
@@ -15,20 +18,10 @@
       // set error
       $error = 'Please fill out all required fields.';
     } else {
-      $query = "INSERT INTO tblStories
-                (UserId,  CategoryId, Title, Author, Body)
-                VALUES ('$submitter', '$category', '$title', '$author', '$body')";
-      $insert_row = $db->insert($query);
+
+      $insert_row = $db->insert($st->setStory($submitter, $category, $title, $author, $body));
     }
   }
-?>
-<?php
-$id = $_GET['id'];
-  // create categories query
-  $query = "SELECT * FROM tblCategories
-            ORDER BY Name";
-  //run query
-  $categories = $db->select($query);
 ?>
 
 <h2 class="page-header">Add Story</h2>

@@ -9,7 +9,6 @@ class Category {
 
   		return $query;
 	}
-	
 
 	public function getCategoryById($id)
 	{
@@ -17,5 +16,15 @@ class Category {
             
         return $query;
 	}
+
+	public function setCategory($name)
+	{
+		$query = "INSERT INTO tblCategories
+            (Name)
+            VALUES ('$name')";
+
+        return $query;
+	}
+	
 	
 }

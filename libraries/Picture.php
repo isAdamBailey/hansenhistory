@@ -49,6 +49,17 @@ class Picture {
 
 		return $query;
 	}
+
+	public function setPicture($category, $imagepath, $year, $title, $description)
+	{
+		$query = "INSERT INTO tblImages
+            (CategoryId, ImagePath, Year, Title, Description)                
+            VALUES
+            ('$category', '$imagepath', '$year', '$title', '$description')";
+
+        return $query;
+	}
+	
 	
 	
 	

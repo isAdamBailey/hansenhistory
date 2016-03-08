@@ -1,13 +1,11 @@
-<?php include 'includes/header.php'; ?>
-<?php
-    
-  // create DB object
-  $db = new Database();
+<?php 
+  include 'includes/header.php'; 
 
-  // if submit button is pressed
+  $db = new Database();
+  $ob = new Obituary();
+
   if(isset($_POST['submit'])){
 
-    // image variables 
     $target_dir = '../images/obits/';
     $target_file = $target_dir . basename($_FILES['image']['name']);
     $uploadOk = 1;
@@ -49,13 +47,7 @@
       // upload the file
       move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
 
-      // update the db values
-      $query = "INSERT INTO tblObits
-                (ImagePath, Name, Obituary, BirthDate, DeathDate)                
-                VALUES
-                ('$imagepath', '$name', '$obituary', '$birthdate', '$deathdate')";
-
-      $insert_row = $db->insert($query);
+      $insert_row = $db->insert($ob->setObituary($imagepath, $name, $obituary, $birthdate, $deathdate));
     }
   }
 ?>

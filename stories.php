@@ -11,7 +11,6 @@
     $category = $_GET['category'];
     $stories = $db->select($st->getStoryByCategory($category));
     $cat = $db->select($ca->getCategoryById($category))->fetch_assoc();
-
   } else {
     $stories = $db->select($st->getAllStories());
   }

@@ -1,6 +1,5 @@
-<?php include 'includes/header.php'; ?>
-
-<?php
+<?php 
+  include 'includes/header.php';
 
   if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
     $id = $_GET['id'];
@@ -12,7 +11,7 @@
   $db = new Database();
   $us = new User();
 
-  $user = $db->select($us->getUserById($id))->fetch_assoc();
+  $usr = $db->select($us->getUserById($id))->fetch_assoc();
 
   // if submit button is pressed
   if(isset($_POST['submit'])){
@@ -83,14 +82,14 @@
             <label for="name" class="col-sm-3 control-label">User Name</label>
             <div class="col-sm-6">
               <input type="text" class="form-control" name="name" value="<?php
-                echo $user['Name']; ?>" placeholder="User name">
+                echo $usr['Name']; ?>" placeholder="User name">
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-3 control-label">Set As Admin?</label>
             <div class="col-sm-6 btn-group" data-toggle="buttons">
               <label class="btn btn-primary <?php
-                    if ($user['isAdmin'] === '0') {
+                    if ($usr['isAdmin'] === '0') {
                         echo ' active';
                     }
                 ?>">
@@ -101,7 +100,7 @@
                 ?>>No
               </label>
               <label class="btn btn-primary <?php
-                    if ($user['isAdmin'] === '1') {
+                    if ($usr['isAdmin'] === '1') {
                         echo ' active';
                     }
                 ?>">

@@ -17,5 +17,29 @@ class Obituary {
 
 		return $query;
 	}
+
+	public function setObituary($imagepath, $name, $obituary, $birthdate, $deathdate)
+	{
+		$query = "INSERT INTO tblObits
+            (ImagePath, Name, Obituary, BirthDate, DeathDate)                
+            VALUES
+            ('$imagepath', '$name', '$obituary', '$birthdate', '$deathdate')";
+
+        return $query;
+	}
+
+	public function updateObituary($imagepath, $name, $obituary, $birthdate, $deathdate, $id)
+	{
+		$query = "UPDATE tblObits
+            SET Name = '$name',
+                Obituary = '$obituary',
+                BirthDate = '$birthdate',
+                DeathDate = '$deathdate'                      
+            WHERE id = " .$id;
+
+        return $query;
+	}
+	
+	
 	
 }

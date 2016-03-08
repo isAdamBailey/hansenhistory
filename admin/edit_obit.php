@@ -4,7 +4,7 @@
   $db = new Database();
   $ob = new Obituary();
 
-  $obit = $db->select($ob->getSingleObituary())->fetch_assoc();
+  $obit = $db->select($ob->getObituaryById())->fetch_assoc();
 
   $id = $_GET['id'];
   // if submit button is pressed
@@ -19,15 +19,8 @@
       // set error
       $error = 'Please fill out all required fields.';
     } else {
-      // or update the values
-      $query = "UPDATE tblObits
-                SET Name = '$name',
-                    Obituary = '$obituary',
-                    BirthDate = '$birthdate',
-                    DeathDate = '$deathdate'                      
-                WHERE id = " .$id;
-
-      $update_row = $db->update($query);
+      
+      $update_row = $db->update($ob->updateObituary($imagepath, $name, $obituary, $birthdate, $deathdate, $id));
     }
   }
 ?>

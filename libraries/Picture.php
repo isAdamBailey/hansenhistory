@@ -4,8 +4,7 @@ class Picture {
 
 	public function getAllPictures($order = 'ASC')
 	{
-		$query = "SELECT * FROM tblImages
-            ORDER BY Year " .$order;
+		$query = "SELECT * FROM tblImages ORDER BY Year " .$order;
 
         return $query;
 	}
@@ -59,9 +58,25 @@ class Picture {
 
         return $query;
 	}
-	
-	
-	
+
+	public function updatePicture($category, $year, $title, $description, $id)
+	{
+		$query = "UPDATE tblImages
+            SET CategoryId = '$category',
+                Year = '$year',
+                Title = '$title',
+                Description = '$description'                      
+            WHERE id = " .$id;
+
+        return $query;
+	}
+
+	public function deletePicture($id)
+	{
+		$query = "DELETE FROM tblImages WHERE id = " .$id;
+
+        return $query;
+	}
 	
 	
 }

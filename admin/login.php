@@ -1,17 +1,16 @@
 <?php
   include '../config/config.php';
   include '../libraries/Database.php';
+  include '../libraries/User.php';
   session_start();
+
+  $db = new Database();
+  $us = new User();
 
 if (isset($_POST['name']) && isset($_POST['password'])) {
     
     $login = $_POST['name'];
-
-    $db = new Database;
-
-    $query = "SELECT * FROM tblUsers WHERE Name = '$login'";
-
-    $user = $db->select($query);
+    $user = $db->select($us->getUserByName($login));
 
     if ($row = $user->fetch_assoc()) {
         $hash = $row['Password'];
@@ -31,10 +30,10 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
     } else {
         $error = 'Login failed.';
     }
-    //mysqli_close($db);
 } 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

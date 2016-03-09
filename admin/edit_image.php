@@ -23,32 +23,20 @@
       // set error
       $error = 'Please fill out all required fields.';
     } else {
-      // or update the values
-      $query = "UPDATE tblImages
-                SET CategoryId = '$category',
-                	Year = '$year',
-                    Title = '$title',
-                    Description = '$description'                      
-                WHERE id = " .$id;
 
-      $update_row = $db->update($query);
+      $update_row = $db->update($pi->updatePicture($category, $year, $title, $description, $id));
     }
   }
-?>
 
-<?php
-  // if delete button is pressed
   if(isset($_POST['delete'])){
-    // call delete method
-    $query = "DELETE FROM tblImages
-              WHERE id = " .$id;
-    $delete_row = $db->delete($query);
+    
+    $delete_row = $db->delete($pi->deletePicture($id));
 
     $filename = "../images/gallery/".$image['ImagePath'];
     unlink($filename);
-
   }
 ?>
+
 <h2 class="page-header">Edit "<?php echo $image['Title']; ?>"</h2>
 <div class="row">
 	<div class="col-md-8">

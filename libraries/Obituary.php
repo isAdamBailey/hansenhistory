@@ -40,6 +40,12 @@ class Obituary {
         return $query;
 	}
 	
+	public function deleteObituary($id)
+	{
+		$query = "DELETE FROM tblObits WHERE id = " .$id;
+
+        return $query;
+	}
 	
 	
 }

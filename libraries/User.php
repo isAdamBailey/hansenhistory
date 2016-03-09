@@ -18,7 +18,7 @@ class User {
 
 	public function getUserByName($name)
 	{
-		$query = 'SELECT Name FROM tblUsers WHERE Name = "'.$name.'"';
+		$query = "SELECT * FROM tblUsers WHERE Name = '$name'";
 
 		return $query;
 	}
@@ -31,7 +31,39 @@ class User {
 
         return $query;
 	}
+
+	public function updateUser($name, $isadmin, $id)
+	{
+		$query = "UPDATE tblUsers 
+            SET Name = '$name', 
+                isAdmin = '$isadmin'
+            WHERE id = " .$id;
+
+        return $query;
+	}
+
+	public function getPasswordById($id)
+	{
+		$query = "SELECT Password FROM tblUsers WHERE id = " .$id;
+
+		return $query;
+	}
+
+	public function updatePassword($newPassword, $id)
+	{
+		$query = "UPDATE tblUsers 
+            SET Password = '$newPassword'
+            WHERE id = " .$id;
+
+        return $query;
+	}
 	
+	public function deleteUser($id)
+	{
+		$query = "DELETE FROM tblUsers WHERE id = " .$id;
+
+		return $query;
+	}
 	
 		
 	

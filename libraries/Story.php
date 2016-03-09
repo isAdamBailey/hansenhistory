@@ -4,8 +4,7 @@ class Story {
 
 	public function getAllStories()
 	{
-		$query = "SELECT * FROM tblStories
-            ORDER BY id DESC";
+		$query = "SELECT * FROM tblStories ORDER BY id DESC";
 
         return $query;
 	}
@@ -60,6 +59,25 @@ class Story {
             VALUES ('$submitter', '$category', '$title', '$author', '$body')";
 
         return $query;
+	}
+
+	public function updateStory($category, $title, $author, $body, $id)
+	{
+		$query = "UPDATE tblStories
+            SET CategoryId = '$category',
+                Title = '$title',
+                Author = '$author',
+                Body = '$body'              
+            WHERE id = " .$id;
+
+        return $query;
+	}
+
+	public function deleteStory($id)
+	{
+		$query = "DELETE FROM tblStories WHERE id = " .$id;
+
+		return $query;
 	}
 	
 	

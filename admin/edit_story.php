@@ -10,9 +10,7 @@
   $story = $db->select($st->getStoryById($id))->fetch_assoc();
 
   $categories = $db->select($ca->getAllCategories());
-?>
 
-<?php
   // if submit button is pressed
   if(isset($_POST['submit'])){
     //assign story variables
@@ -25,28 +23,17 @@
       // set error
       $error = 'Please fill out all required fields.';
     } else {
-      // or update the values
-      $query = "UPDATE tblStories
-                SET CategoryId = '$category',
-                    Title = '$title',
-                    Author = '$author',
-                    Body = '$body'              
-                WHERE id = " .$id;
 
-      $update_row = $db->update($query);
+      $update_row = $db->update($st->updateStory($category, $title, $author, $body, $id));
     }
   }
-?>
 
-<?php
-  // if delete button is pressed
   if(isset($_POST['delete'])){
-    // call delete method
-    $query = "DELETE FROM tblStories
-              WHERE id = " .$id;
-    $delete_row = $db->delete($query);
+
+    $delete_row = $db->delete($st->deleteStory($id));
   }
 ?>
+
 <h2 class="page-header">Edit <?php echo $story['Title']; ?></h2>
 <form method="post" action="edit_story.php?id=<?php echo $id; ?>">
   <div class="form-group">

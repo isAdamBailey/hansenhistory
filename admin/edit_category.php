@@ -18,22 +18,14 @@
       // set error
       $error = 'Please fill out all required fields.';
     } else {
-      $query = "UPDATE tblCategories
-                SET Name = '$name'
-                WHERE id = ".$id;
 
-      $update_row = $db->update($query);
+      $update_row = $db->update($ca->updateCategory($name, $id));
     }
   }
-?>
 
-<?php
-  // if delete button is pressed
   if(isset($_POST['delete'])){
-    // call delete method
-    $query = "DELETE FROM tblCategories
-              WHERE id = " .$id;
-    $delete_row = $db->delete($query);
+
+    $delete_row = $db->delete($ca->deleteCategory($id));
   }
 ?>
 

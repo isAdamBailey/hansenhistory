@@ -2,7 +2,6 @@
 
   include 'includes/header.php';
 
-  // get database object
   $db = new Database();
   $pi = new Picture();
   $ca = new Category();
@@ -21,6 +20,7 @@
   $images = $db->select($pi->getAllPictures('DESC'));
 
   ?>
+
   <div class="col-md-12">
     <h3>Stories</h3>
     <table class="table table-striped">
@@ -116,17 +116,13 @@
           <th>Action</th>
       </tr> 
       <?php while($row = $images->fetch_assoc()) : ?>
+        <?php $cat = $db->select($ca->getCategoryById($row['CategoryId']))->fetch_assoc(); ?>
         <tr>
           <td><?php echo $row['id']; ?></td>
           <td><img class="img-thumbnail img-responsive" src="../images/gallery/<?php echo $row['ImagePath']; ?>" alt="<?php echo $row['Title']; ?>" title="<?php echo $row['ImagePath']; ?>"/></td>
           <td><?php echo $row['Year']; ?></td>
           <td><?php echo $row['Title']; ?></td>
           <td><?php echo shortenText($row['Description'], 100); ?></td>
-          <?php
-            // category for each image
-            $query = "SELECT Name FROM tblCategories WHERE id = ".$row['CategoryId'];
-            $cat = $db->select($query)->fetch_assoc();
-          ?>
           <td><?php echo $cat['Name']; ?></td>
           <td><a class="btn btn-primary" href="edit_image.php?id=<?php echo $row['id']; ?>" role="button"><span class="glyphicon glyphicon-pencil"></span> Edit</a><br><br></td>
         </tr>

@@ -24,19 +24,16 @@
         //assign variables
         $name = mysqli_real_escape_string($db->link, $_POST['name']);
         $isadmin = mysqli_real_escape_string($db->link, $_POST['isAdmin']);
-        
-        // add database code here
-        $query = "UPDATE tblUsers 
-                  SET Name = '$name', 
-                      isAdmin = '$isadmin'
-                  WHERE id = ".$id;
-
-        $update_row = $db->update($query);
+ 
+        $update_row = $db->update($us->updateUser($name, $isadmin, $id));
       }
   }
 
-// password change section
+  if(isset($_POST['delete'])){
+    $delete_row = $db->delete($us->deleteUser($id));
+  }
 
+ // password change section
  if (isset($_POST['submit2'])) {
 
     if (isSet($_POST['password']) && isSet($_POST['newPassword']) && isSet($_POST['confirmPassword']) 
@@ -49,19 +46,15 @@
           $password = $_POST['password'];
           $password = password_hash($password, PASSWORD_DEFAULT);
 
-           // get password
-          $query = "SELECT Password FROM tblUsers WHERE id = ".$id;
-          $row = $db->select($query)->fetch_assoc();
+          // get password
+          $row = $db->select($us->getPasswordById($id))->fetch_assoc();
 
           if ($row) {
-
             $hash = $row['Password'];
 
             if (password_verify($_POST['password'], $hash)) {
-              $query = "UPDATE tblUsers 
-                        SET Password = '$newPassword'
-                        WHERE id = " .$id;
-              $update_row = $db->update($query);
+              
+              $update_row = $db->update($us->updatePassword($newPassword, $id));
           } else 
               $error = 'Incorrect password.';
 

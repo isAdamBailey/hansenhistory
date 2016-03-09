@@ -1,6 +1,6 @@
-<?php include 'includes/header.php'; ?>
-<?php
-
+<?php 
+  include 'includes/header.php'; 
+  
   $db = new Database();
   $ob = new Obituary();
 
@@ -23,21 +23,16 @@
       $update_row = $db->update($ob->updateObituary($imagepath, $name, $obituary, $birthdate, $deathdate, $id));
     }
   }
-?>
 
-<?php
-  // if delete button is pressed
   if(isset($_POST['delete'])){
-    // call delete method
-    $query = "DELETE FROM tblObits
-              WHERE id = " .$id;
-    $delete_row = $db->delete($query);
+    
+    $delete_row = $db->delete($ob->deleteObituary($id));
 
     $filename = "../images/obits/".$obit['ImagePath'];
     unlink($filename);
-
   }
 ?>
+
 <h2 class="page-header">Edit <?php echo $obit['Name']; ?>'s Obituary</h2>
 <div class="row">
   <div class="col-md-8">

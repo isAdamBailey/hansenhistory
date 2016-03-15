@@ -13,6 +13,7 @@
   include '../libraries/Story.php';
   
   include '../helpers/format_helper.php';
+  include '../helpers/upload_helper.php';
 ?>
 <?php require 'auth.php'; ?>
 

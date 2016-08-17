@@ -48,7 +48,7 @@
   </head>
 
   <body>
-    <div class="loader"></div>
+    <!-- <div class="loader"></div> -->
     
     <div class="masthead">
       <div class="container">

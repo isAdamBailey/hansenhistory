@@ -32,3 +32,5 @@
 # Sublime #
 ###########
 *.sublime-workspace
+
+.idea/

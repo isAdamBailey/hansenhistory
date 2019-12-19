@@ -56,15 +56,15 @@
     <div class="pictures col-sm-9">
       <div class="grid wow fadeIn" data-wow-delay="1s">
         <?php if($images) : ?>
-          <?php while($row = $images->fetch_assoc()) : ?>          
+          <?php while($row = $images->fetch_assoc()) : ?>
             <a href="images/gallery/<?php echo $row['ImagePath']; ?>" data-lightbox="gallery" data-title="<?php echo $row['Description']; ?>Dated <?php echo $row['Year']; ?>">
-            <img class="grid-item wow fadeInUp" src="images/gallery/<?php echo $row['ImagePath']; ?>" alt="<?php echo $row['Title']; ?>" data-toggle="tooltip" data-html="true" title="<h4><?php echo $row['Title']; ?></h4>"></a>               
+            <img class="grid-item wow fadeInUp" src="images/gallery/<?php echo $row['ImagePath']; ?>" alt="<?php echo $row['Title']; ?>" data-toggle="tooltip" data-html="true" title="<h4><?php echo $row['Title']; ?></h4>"></a>
           <?php endwhile; ?>
           <?php else : ?>
             <p>There are no pictures yet</p>
           <?php endif; ?>
         </div>
-    </div>  
+    </div>
     <div class="col-sm-3">
       <div class="sidebar-module sidebar-module-inset">
         <h4>About</h4>
@@ -97,9 +97,36 @@
 </div><!-- /.container -->
 
 <script>
-  // script to select dropdawn menu items as links
+  // script to select dropdown menu items as links
   document.getElementById('year').onchange = function() {
       window.location.href = this.children[this.selectedIndex].getAttribute('href');
+  }
+
+  /*
+  * lazy-simon.js
+  *
+  *  Minimal effort 350 byte JavaScript library to lazy load all <img> on your website
+  *
+  * License: MIT (https://github.com/simonfrey/lazysimon/blob/master/LICENSE)
+  */
+  o = new IntersectionObserver((a, s) => {
+    a.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.src = e.target.dataset.l;
+        s.unobserve(e.target);
+      }
+    });
+  });
+  d = document.querySelectorAll("img");
+  for (let i = d.length - 1; i >= 0; i--) {
+    const e = d[i];
+    if (e.loading !== undefined){
+      e.loading = "lazy"
+    }else{
+      e.dataset.l = e.src;
+      e.src = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' />";
+      o.observe(e);
+    }
   }
 </script>
 

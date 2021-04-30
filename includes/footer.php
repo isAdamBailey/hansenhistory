@@ -1,8 +1,8 @@
 
 
     <footer>
-      <p class="pull-right"><a href="http://ajamesb.com/" data-html="true" data-toggle="tooltip" data-placement="top" title="<h4>Site by Adam Bailey</h4>" target="_BLANK"><span class="glyphicon glyphicon-music"></span><small> <strong>AB</strong></small></a></p>
-      <p class="pull-left"><small>&copy; 2015 - <?php echo date("Y"); ?> &middot; Hansen North Fork Ranch</small></p>
+      <p class="pull-right"><a href="https://adambailey.io" data-html="true" data-toggle="tooltip" data-placement="top" title="<h4>Site by Adam Bailey</h4>" target="_BLANK"><span class="glyphicon glyphicon-music"></span><small> <strong>AB</strong></small></a></p>
+      <p class="pull-left"><small>&copy; 2015 - <?php echo date("Y"); ?></small></p>
       <h4 class="text-center wow bounce"><a href="#" data-html="true" data-toggle="tooltip" data-placement="top" title="<h4>Top of the page</h4>">Back To Top</a></h4>
     </footer>
 

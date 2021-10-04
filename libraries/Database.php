@@ -1,15 +1,21 @@
 <?php
 class Database {
-	public $host = DB_HOST;
-	public $username = DB_USER;
-	public $password = DB_PASS;
-	public $db_name = DB_NAME;
+	public $host;
+	public $username;
+	public $password;
+	public $db_name;
 
 	public $link;
 	public $error;
 
 	// Class constructor
 	public function __construct(){
+
+        $this->host = getenv('DB_HOST');
+        $this->username = getenv('DB_USER');
+        $this->password = getenv('DB_PASS');
+        $this->db_name = getenv('DB_NAME');
+
 		// call connect function
 		$this->connect();
 	}

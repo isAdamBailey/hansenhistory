@@ -1,22 +1,27 @@
 <?php
 class Database {
-	public $host;
-	public $username;
-	public $password;
-	public $db_name;
+	public $host = DB_HOST;
+	public $username = DB_USER;
+	public $password = DB_PASS;
+	public $db_name = DB_NAME;
 
 	public $link;
 	public $error;
 
 	// Class constructor
 	public function __construct(){
+		// call connect function
+		$this->connect();
+	}
 
-        $this->host = getenv('DB_HOST');
-        $this->username = getenv('DB_USER');
-        $this->password = getenv('DB_PASS');
-        $this->db_name = getenv('DB_NAME');
+	//connector
+	private function connect(){
+		$this->link = new mysqli($this->host, $this->username, $this->password, $this->db_name);
 
-        $this->link = new mysqli($this->host, $this->username, $this->password, $this->db_name);
+		if(!$this->link){
+			$this->error = "Connection failed: ".$this->link->connect_error;
+			return false;
+		}
 	}
 
 	// select method for selecting data from database

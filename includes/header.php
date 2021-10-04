@@ -1,4 +1,5 @@
 <?php ob_start(); ?>
+<?php include 'config/config.php'; ?>
 
 <?php include 'libraries/Database.php'; ?>
 <?php include 'libraries/Obituary.php'; ?>

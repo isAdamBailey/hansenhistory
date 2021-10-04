@@ -3,8 +3,8 @@
 
 		global $db;
 
-		$button = $_GET [ 'submit' ]; 
-		$search = $_GET [ 'search' ]; 
+		$button = isset($_GET [ 'submit' ]) ? $_GET ['submit'] : null; 
+		$search = isset($_GET [ 'search' ]) ? $_GET ['search'] : null; 
 	 	
 	 	if( !$button ) {
 	 		echo "<p>Enter a keyword</p>";
@@ -21,7 +21,7 @@
 	 	$search_exploded = explode ( " ", $search );
 	 	$x = 0;
 	 	foreach( $search_exploded as $search_each) {
-	 		$X++;
+	 		$x++;
 	 		$construct = " ";
 	 		if($x <= 1) {
 	 			$construct .= "Body LIKE '%$search_each%'";

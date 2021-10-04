@@ -20,15 +20,6 @@
 *.sql
 *.sqlite
 
-# Images #
-##########
-/images
-*.jpg
-*.gif
-*.png
-*.svg
-*.ico
-
 # Sublime #
 ###########
 *.sublime-workspace

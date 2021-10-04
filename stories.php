@@ -63,7 +63,7 @@
     <div class="col-sm-3">
       <div class="sidebar-module sidebar-module-inset">
         <h4>About</h4>
-        <p><?php echo $about_stories; ?></p>
+        <p>Here we will share stories written by family members about the Hansen family history.</p>
       </div>
       <div class="sidebar-module">
         <h4>Categories</h4>

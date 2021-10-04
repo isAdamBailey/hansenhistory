@@ -16,18 +16,7 @@ class Database {
         $this->password = getenv('DB_PASS');
         $this->db_name = getenv('DB_NAME');
 
-		// call connect function
-		$this->connect();
-	}
-
-	//connector
-	private function connect(){
-		$this->link = new mysqli($this->host, $this->username, $this->password, $this->db_name);
-
-		if(!$this->link){
-			$this->error = "Connection failed: ".$this->link->connect_error;
-			return false;
-		}
+        $this->link = new mysqli($this->host, $this->username, $this->password, $this->db_name);
 	}
 
 	// select method for selecting data from database

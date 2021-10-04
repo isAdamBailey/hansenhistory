@@ -31,7 +31,7 @@ class Story {
 		$query = "SELECT tc.id, Name FROM (SELECT DISTINCT * FROM tblCategories) as tc
             INNER JOIN tblStories
             ON tc.id = tblStories.CategoryId
-            GROUP BY Name";
+            GROUP BY Name, tc.id";
 
         return $query;
 	}
